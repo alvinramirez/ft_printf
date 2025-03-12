@@ -6,7 +6,7 @@
 /*   By: alvinram <alvinram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/26 20:48:52 by alvinram          #+#    #+#             */
-/*   Updated: 2025/03/10 21:49:52 by alvinram         ###   ########.fr       */
+/*   Updated: 2025/03/12 21:21:04 by alvinram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,6 @@ int	ft_printf(const char *format, ...)
 {
 	va_list	args;
 	int		count;
-	char	c;
-	char	*str;
-	int		num;
 
 	va_start(args, format);
 	count = 0;
