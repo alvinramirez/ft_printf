@@ -1,14 +1,16 @@
 
 NAME = libftprintf.a
 
-SRC =	ft_basics.c\
-		ft_printf.c\
+SRC =	ft_basics.c \
+		ft_printf.c \
+		ft_pointers.c \
+		ft_hexadecimals.c
 
 # Definiendo INCLUDE para incluir archivos de encabezado
 INCLUDE = -I .
 
 # Definiendo los archivos objeto
-OBJ := $(SRC:.c=.o)
+OBJ = $(SRC:.c=.o)
 
 # Opciones de compilación
 CC = cc
@@ -34,7 +36,7 @@ re: fclean all
 
 # Compilación individual de archivos .c a .o
 %.o: %.c
-	cc $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
 
 # Declaración de las reglas como "phony" para evitar conflictos con archivos que se llamen igual
 .PHONY: all clean fclean re
