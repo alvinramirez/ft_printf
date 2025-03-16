@@ -6,7 +6,7 @@
 /*   By: alvinram <alvinram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/26 20:48:52 by alvinram          #+#    #+#             */
-/*   Updated: 2025/03/12 22:37:09 by alvinram         ###   ########.fr       */
+/*   Updated: 2025/03/16 23:41:45 by alvinram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,10 @@ static int	ft_select_format(va_list args, char specifier)
 		size += ft_print_unsigned(va_arg(args, unsigned int));
 	else if (specifier == 'p')
 		size += ft_print_pointer(va_arg(args, unsigned long long));
+	else if (specifier == 'x' || specifier == 'X')
+		size += ft_print_hexadecimal(va_arg(args, unsigned int), specifier);
+	else if (specifier == '%')
+		size += write(1, "%", 1);
 	else
 		size += ft_print_character(specifier);
 	return (size);
