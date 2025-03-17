@@ -1,7 +1,7 @@
 
 NAME = libftprintf.a
 
-SRC =	ft_basics.c \
+SRC =	ft_base.c \
 		ft_printf.c \
 		ft_pointers.c \
 		ft_hexadecimals.c
