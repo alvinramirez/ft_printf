@@ -6,34 +6,39 @@
 /*   By: alvinram <alvinram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/26 20:48:52 by alvinram          #+#    #+#             */
-/*   Updated: 2025/03/16 23:41:45 by alvinram         ###   ########.fr       */
+/*   Updated: 2025/03/18 23:10:08 by alvinram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
+int	ft_handle_output(int *count, int result)
+{
+	if (result < 0)
+		return (-1);
+	*count += result;
+	return (0);
+}
+
 static int	ft_select_format(va_list args, char specifier)
 {
-	int	size;
-
-	size = 0;
 	if (specifier == 'c')
-		size += ft_print_character(va_arg(args, int));
-	else if (specifier == 's')
-		size += ft_print_string(va_arg(args, char *));
-	else if (specifier == 'd' || specifier == 'i')
-		size += ft_print_number(va_arg(args, int));
-	else if (specifier == 'u')
-		size += ft_print_unsigned(va_arg(args, unsigned int));
-	else if (specifier == 'p')
-		size += ft_print_pointer(va_arg(args, unsigned long long));
-	else if (specifier == 'x' || specifier == 'X')
-		size += ft_print_hexadecimal(va_arg(args, unsigned int), specifier);
-	else if (specifier == '%')
-		size += write(1, "%", 1);
-	else
-		size += ft_print_character(specifier);
-	return (size);
+		return (ft_print_character(va_arg(args, int)));
+	if (specifier == 's')
+		return (ft_print_string(va_arg(args, char *)));
+	if (specifier == 'p')
+		return (ft_print_pointer(va_arg(args, void *)));
+	if (specifier == 'd' || specifier == 'i')
+		return (ft_print_number(va_arg(args, int)));
+	if (specifier == 'u')
+		return (ft_print_unsigned(va_arg(args, unsigned int)));
+	if (specifier == 'x')
+		return (ft_print_hex(va_arg(args, unsigned int), 0));
+	if (specifier == 'X')
+		return (ft_print_hex(va_arg(args, unsigned int), 1));
+	if (specifier == '%')
+		return (ft_safe_write(1, "%", 1));
+	return (-1);
 }
 
 int	ft_printf(const char *format, ...)
@@ -48,10 +53,11 @@ int	ft_printf(const char *format, ...)
 		if (*format == '%')
 		{
 			format++;
-			count += ft_select_format(args, *format);
+			if (ft_handle_output(&count, ft_select_format(args, *format)) < 0)
+				return (va_end(args), -1);
 		}
-		else
-			count += write(1, format, 1);
+		else if (ft_handle_output(&count, ft_safe_write(1, format, 1)) < 0)
+			return (va_end(args), -1);
 		format++;
 	}
 	va_end(args);
