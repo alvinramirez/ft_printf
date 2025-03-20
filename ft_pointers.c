@@ -6,7 +6,7 @@
 /*   By: alvinram <alvinram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/26 21:44:11 by alvinram          #+#    #+#             */
-/*   Updated: 2025/03/15 22:28:46 by alvinram         ###   ########.fr       */
+/*   Updated: 2025/03/20 22:33:50 by alvinram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,13 @@ int	ft_print_pointer(unsigned long long pointer)
 	int	count;
 
 	count = 0;
-	count += write(1, "0x", 2);
+	if (ft_handle_output(&count, ft_safe_write(1, "0x", 2)) < 0)
+		return (-1);
 	if (pointer == 0)
-		return (count + write(1, "0", 1));
-	ft_search_pointer(pointer);
+		return (ft_handle_output(&count, ft_safe_write(1, "0", 1)) < 0 ?
+			-1 : count);
+	if (ft_search_pointer(pointer) < 0)
+		return (-1);
 	return (count + ft_pointer_length(pointer));
 }
 
@@ -43,9 +46,9 @@ static int	ft_pointer_length(unsigned long long pointer)
 static void	ft_search_pointer(unsigned long long pointer)
 {
 	if (pointer >= 16)
-		ft_search_pointer(pointer / 16);
+		if (ft_search_pointer(pointer / 16) < 0)
+			return (-1);
 	if (pointer % 16 < 10)
-		ft_print_character((pointer % 16) + '0');
-	else
-		ft_print_character((pointer % 16) - 10 + 'a');
+		return (ft_print_character((pointer % 16) + '0'));
+	return (ft_print_character((pointer % 16) - 10 + 'a'));
 }
