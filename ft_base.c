@@ -1,18 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_basics.c                                        :+:      :+:    :+:   */
+/*   ft_base.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alvinram <alvinram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/26 20:49:00 by alvinram          #+#    #+#             */
-/*   Updated: 2025/03/17 22:27:14 by alvinram         ###   ########.fr       */
+/*   Updated: 2025/03/21 16:33:29 by alvinram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-int	ft_safe_write(int fd, const void *buffer, size_t count);
 
 int	ft_print_character(char character)
 {
@@ -84,14 +82,4 @@ int	ft_print_unsigned(unsigned int number)
 		return (-1);
 	len += result;
 	return (len);
-}
-
-int	ft_safe_write(int fd, const void *buffer, size_t count)
-{
-	int	bytes_written;
-
-	bytes_written = write(fd, buffer, count);
-	if (bytes_written < 0)
-		return (-1);
-	return (bytes_written);
 }

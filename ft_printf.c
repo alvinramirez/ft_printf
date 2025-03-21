@@ -6,19 +6,11 @@
 /*   By: alvinram <alvinram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/26 20:48:52 by alvinram          #+#    #+#             */
-/*   Updated: 2025/03/18 23:10:08 by alvinram         ###   ########.fr       */
+/*   Updated: 2025/03/21 16:33:53 by alvinram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-int	ft_handle_output(int *count, int result)
-{
-	if (result < 0)
-		return (-1);
-	*count += result;
-	return (0);
-}
 
 static int	ft_select_format(va_list args, char specifier)
 {
