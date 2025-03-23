@@ -4,7 +4,8 @@ NAME = libftprintf.a
 SRC =	ft_base.c \
 		ft_printf.c \
 		ft_pointers.c \
-		ft_hexadecimals.c
+		ft_hexadecimals.c \
+		ft_utils.c
 
 # Definiendo INCLUDE para incluir archivos de encabezado
 INCLUDE = -I .
