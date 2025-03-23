@@ -6,7 +6,7 @@
 /*   By: alvinram <alvinram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/26 20:48:52 by alvinram          #+#    #+#             */
-/*   Updated: 2025/03/21 16:33:53 by alvinram         ###   ########.fr       */
+/*   Updated: 2025/03/24 00:05:47 by alvinram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,15 @@ static int	ft_select_format(va_list args, char specifier)
 	if (specifier == 's')
 		return (ft_print_string(va_arg(args, char *)));
 	if (specifier == 'p')
-		return (ft_print_pointer(va_arg(args, void *)));
+		return (ft_print_pointer((unsigned long long)va_arg(args, void *)));
 	if (specifier == 'd' || specifier == 'i')
 		return (ft_print_number(va_arg(args, int)));
 	if (specifier == 'u')
 		return (ft_print_unsigned(va_arg(args, unsigned int)));
 	if (specifier == 'x')
-		return (ft_print_hex(va_arg(args, unsigned int), 0));
+		return (ft_print_hexadecimal(va_arg(args, unsigned int), 0));
 	if (specifier == 'X')
-		return (ft_print_hex(va_arg(args, unsigned int), 1));
+		return (ft_print_hexadecimal(va_arg(args, unsigned int), 1));
 	if (specifier == '%')
 		return (ft_safe_write(1, "%", 1));
 	return (-1);
