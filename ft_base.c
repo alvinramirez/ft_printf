@@ -6,7 +6,7 @@
 /*   By: alvinram <alvinram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/26 20:49:00 by alvinram          #+#    #+#             */
-/*   Updated: 2025/03/21 16:33:29 by alvinram         ###   ########.fr       */
+/*   Updated: 2025/03/25 17:39:55 by alvinram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,12 @@
 
 int	ft_print_character(char character)
 {
-	return (ft_safe_write(1, &character, 1));
+	int	result;
+
+	result = ft_safe_write(1, &character, 1);
+	if (result < 0)
+		return (-1);
+	return (result);
 }
 
 int	ft_print_string(char *string)

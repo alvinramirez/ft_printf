@@ -6,7 +6,7 @@
 /*   By: alvinram <alvinram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 16:32:03 by alvinram          #+#    #+#             */
-/*   Updated: 2025/03/21 16:34:03 by alvinram         ###   ########.fr       */
+/*   Updated: 2025/03/25 17:40:01 by alvinram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,18 @@
 
 int	ft_safe_write(int fd, const void *buffer, size_t count)
 {
-	int	bytes_written;
-
-	bytes_written = write(fd, buffer, count);
-	if (bytes_written < 0)
+	if (!buffer || count == 0)
 		return (-1);
-	return (bytes_written);
+	return (write(fd, buffer, count));
 }
 
 int	ft_handle_output(int *count, int result)
 {
 	if (result < 0)
+	{
+		*count = -1;
 		return (-1);
+	}
 	*count += result;
 	return (0);
 }
