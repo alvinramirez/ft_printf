@@ -6,7 +6,7 @@
 /*   By: alvinram <alvinram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/26 21:44:07 by alvinram          #+#    #+#             */
-/*   Updated: 2025/03/25 16:00:13 by alvinram         ###   ########.fr       */
+/*   Updated: 2025/03/26 22:24:33 by alvinram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,15 @@
 static void	ft_search_hexadecimal(unsigned int number, int caseType);
 static int	ft_length_hexadecimal(unsigned int number);
 
-int	ft_print_hexadecimal(unsigned int number, const char caseType)
+int	ft_print_hexadecimal(int number, const char caseType)
 {
-	int	count;
+	unsigned int	n;
 
-	count = 0;
-	if (number == 0)
+	n = (unsigned int)number;
+	if (n == 0)
 		return (ft_print_character('0'));
-	ft_search_hexadecimal(number, caseType);
-	count += ft_length_hexadecimal(number);
-	return (count);
+	ft_search_hexadecimal(n, caseType);
+	return (ft_length_hexadecimal(n));
 }
 
 static void	ft_search_hexadecimal(unsigned int number, int caseType)
