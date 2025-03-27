@@ -6,7 +6,7 @@
 /*   By: alvinram <alvinram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/26 21:44:07 by alvinram          #+#    #+#             */
-/*   Updated: 2025/03/26 22:24:33 by alvinram         ###   ########.fr       */
+/*   Updated: 2025/03/27 23:44:15 by alvinram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static void	ft_search_hexadecimal(unsigned int number, int caseType)
 		hex_char = (number % 16) + '0';
 	else
 	{
-		if (caseType == 1)
+		if (caseType == 'X')
 			hex_char = (number % 16) - 10 + 'A';
 		else
 			hex_char = (number % 16) - 10 + 'a';
