@@ -6,7 +6,7 @@
 /*   By: alvinram <alvinram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/26 20:48:46 by alvinram          #+#    #+#             */
-/*   Updated: 2025/03/26 22:26:02 by alvinram         ###   ########.fr       */
+/*   Updated: 2025/03/28 23:47:26 by alvinram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include <stdarg.h>
 # include <unistd.h>
-
+# include <stdio.h>
 int	ft_printf(const char *format, ...);
 
 int	ft_print_character(char character);

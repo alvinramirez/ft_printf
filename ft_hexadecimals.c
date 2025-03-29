@@ -6,7 +6,7 @@
 /*   By: alvinram <alvinram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/26 21:44:07 by alvinram          #+#    #+#             */
-/*   Updated: 2025/03/27 23:44:15 by alvinram         ###   ########.fr       */
+/*   Updated: 2025/03/29 22:33:01 by alvinram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ int	ft_print_hexadecimal(int number, const char caseType)
 {
 	unsigned int	n;
 
+	printf("number: %d, caseType: '%c' (ASCII: %d)\n", number, caseType,
+		caseType);
 	n = (unsigned int)number;
 	if (n == 0)
 		return (ft_print_character('0'));
