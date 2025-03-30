@@ -6,13 +6,13 @@
 /*   By: alvinram <alvinram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/26 21:44:07 by alvinram          #+#    #+#             */
-/*   Updated: 2025/03/27 23:44:15 by alvinram         ###   ########.fr       */
+/*   Updated: 2025/03/30 23:33:28 by alvinram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static void	ft_search_hexadecimal(unsigned int number, int caseType);
+static void	ft_search_hexadecimal(unsigned int number, char caseType);
 static int	ft_length_hexadecimal(unsigned int number);
 
 int	ft_print_hexadecimal(int number, const char caseType)
@@ -26,7 +26,7 @@ int	ft_print_hexadecimal(int number, const char caseType)
 	return (ft_length_hexadecimal(n));
 }
 
-static void	ft_search_hexadecimal(unsigned int number, int caseType)
+static void	ft_search_hexadecimal(unsigned int number, char caseType)
 {
 	char	hex_char;
 
