@@ -6,7 +6,7 @@
 /*   By: alvinram <alvinram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/26 20:48:46 by alvinram          #+#    #+#             */
-/*   Updated: 2025/04/01 23:26:40 by alvinram         ###   ########.fr       */
+/*   Updated: 2025/04/02 22:10:51 by alvinram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,7 @@ int		ft_print_pointer(unsigned long long pointer);
 int		ft_print_hexadecimal(int number, const char caseType);
 
 int		ft_length_hexadecimal(unsigned long long number);
-void	ft_search_hexdecimal(unsigned long long number, char format);
-int		ft_safe_write(int fd, const void *buffer, size_t count);
+void	ft_search_hexadecimal(unsigned long long number, char format);
 int		ft_handle_output(int *count, int result);
 
 #endif
