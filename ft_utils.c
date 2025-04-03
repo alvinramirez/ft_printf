@@ -6,7 +6,7 @@
 /*   By: alvinram <alvinram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 16:32:03 by alvinram          #+#    #+#             */
-/*   Updated: 2025/04/02 22:06:06 by alvinram         ###   ########.fr       */
+/*   Updated: 2025/04/03 13:46:07 by alvinram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	ft_search_hexadecimal(unsigned long long number, char format)
 			ft_print_character(number + '0');
 		else
 		{
-			if (format == 'x' || format == 'p')
+			if (format == 'x')
 				ft_print_character(number - 10 + 'a');
 			else if (format == 'X')
 				ft_print_character(number - 10 + 'A');
