@@ -6,7 +6,7 @@
 /*   By: alvinram <alvinram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 16:32:03 by alvinram          #+#    #+#             */
-/*   Updated: 2025/04/03 13:46:07 by alvinram         ###   ########.fr       */
+/*   Updated: 2025/04/03 13:52:43 by alvinram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,15 +44,4 @@ void	ft_search_hexadecimal(unsigned long long number, char format)
 				ft_print_character(number - 10 + 'A');
 		}
 	}
-}
-
-int	ft_handle_output(int *count, int result)
-{
-	if (result < 0)
-	{
-		*count = -1;
-		return (-1);
-	}
-	*count += result;
-	return (0);
 }

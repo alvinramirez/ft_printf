@@ -6,7 +6,7 @@
 /*   By: alvinram <alvinram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/26 20:48:52 by alvinram          #+#    #+#             */
-/*   Updated: 2025/04/02 22:25:42 by alvinram         ###   ########.fr       */
+/*   Updated: 2025/04/03 13:56:46 by alvinram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ int	ft_printf(char const *format, ...)
 {
 	va_list	args;
 	int		count;
+	int		result;
 
 	va_start(args, format);
 	count = 0;
@@ -26,11 +27,16 @@ int	ft_printf(char const *format, ...)
 		if (*format == '%')
 		{
 			format++;
-			if (ft_handle_output(&count, ft_select_format(args, *format)) < 0)
-				return (va_end(args), -1);
+			result = ft_select_format(args, *format);
 		}
-		else if (ft_handle_output(&count, write(1, format, 1)) < 0)
+		else
+			result = write(1, format, 1);
+		if (result < 0)
+		{
+			count = -1;
 			return (va_end(args), -1);
+		}
+		count += result;
 		format++;
 	}
 	va_end(args);
