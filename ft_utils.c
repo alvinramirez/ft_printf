@@ -6,7 +6,7 @@
 /*   By: alvinram <alvinram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 16:32:03 by alvinram          #+#    #+#             */
-/*   Updated: 2025/04/04 23:29:48 by alvinram         ###   ########.fr       */
+/*   Updated: 2025/04/09 22:43:38 by alvinram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ int	ft_length_hexadecimal(unsigned long long number)
 
 	if (number == 0)
 		return (1);
+	length = 0;
 	while (number > 0)
 	{
 		length++;
